@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--define the file location which used in property-->
+    <properties resource="config.properties"></properties>
+<!--    define where we use the alias that we do not must use the absolute name-->
+<!--  "com.formoney.pojo" indicate the position which will be alias -->
+    <typeAliases><package name="com.formoney.pojo"/></typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+<!-- ${}:means substitute the content through the variable's value-->
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+<!--the location of the mapper file-->
+        <mapper resource="UserMapper.xml"/>
+    </mappers>
+</configuration>

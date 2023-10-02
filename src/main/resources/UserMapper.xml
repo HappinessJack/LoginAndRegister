@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace:indicate the mapper interface absolute path-->
+<mapper namespace="com.formoney.dao.UserMapper">
+<!--   用于映射sql语句给被定义在UserMapper中相关的方法-->
+<!--    id:are used to mapping the sql statement to specific methods which was defined in the useMapper-->
+<!--id被用作映射"select * from user where id=7"这个sql语句到对应的方法-->
+    <!--    resultType:即返回值类型-->
+    <select id="getAllUsers" resultType="User">
+        select * from user
+    </select>
+    <select id="getSpecificUser" resultType="User">
+        select * from user where username=#{username}
+    </select>
+<insert id="addUser" parameterType="User">
+    insert into user value(null,#{username},#{password})
+</insert>
+</mapper>
